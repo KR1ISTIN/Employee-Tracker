@@ -1,0 +1,19 @@
+gather info with inquirer
+    - maybe separate questions out so that way depending on selected option then either a sereies of questions should populate or the table should display when a view option is selected
+
+need to create a database with the following:
+    - id (needs to be a unqiue ID) - id INT AUTO_INCREMENT PRIMARY KEY
+    -first name 
+    -last name
+    -title of the role
+    -department
+    -salary
+    -which manager  for department
+
+going to need MySQL2 package to connect MySQL database for queries
+going to need console.table package to print MySQL rows in console
+express to help connect between the database
+
+if else statements with sperate functions to be returned depending of selected option
+write sepate function to display ....
+else prompt user more questions

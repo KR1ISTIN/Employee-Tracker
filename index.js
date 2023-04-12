@@ -1,16 +1,17 @@
 const inquirer = require('inquirer');
-//const {con} = require('/config.js');
+//const mysql = require('mysql2');
+const {db} = require('./config.js');
 const {mainQ, roles, newEmployee, newDepartment,updateR} = require('./questions.js')
 
-function questions(){
+const questions = () => {
     inquirer.prompt(mainQ).then((data) => {
         const optionSelected = data.options;
         if(optionSelected === 'View all departments') {
-
+            viewDepartment()
         } else if(optionSelected === 'View all roles') {
-
+            viewRoles()
         } else if(optionSelected === 'View all employees') {
-
+            viewEmployees();
         } else if(optionSelected === 'Add a department') {
             addDepartment()
         } else if(optionSelected === 'Add a role') {
@@ -22,7 +23,6 @@ function questions(){
         } else if(optionSelected === 'Quit') {
 
         }
-        
     })
 };
 
@@ -33,29 +33,57 @@ function addRole(){
 function addEmployee(){
     inquirer.prompt(newEmployee).then ((data) => {
         console.log('added')
-        // let firstName = data.firstName;
-        // let lastName = data.lastName;
-        // let fullName = firstName + " " + lastName;
-        // const namesArray = ['Morgan Wallen', 'Kasey James', 'Amber Williams', 'Valerie Houston', 'Sonia Duffy'];
-        // if (!namesArray.includes(fullName)) { 
-        //     namesArray.push(fullName);
-        // }
-        // return namesArray;
     })
 };
 
 function addDepartment(){
     inquirer.prompt(newDepartment).then((data) => {
         const department = data.newDepartment;
-        if(department) {
-            questions()
-        }
+        console.log(department)
+        db.query('INSERT INTO department (name) VALUES (?);', department, (err, res) => {
+            if (err) throw error;
+            db.query('SELECT * FROM department;', (err, res) => {
+                if (err) throw error;
+                console.table(res);
+                questions();
+            })
+           
+        });
+        
     })
 };
+
 
 function updateRole(){
     inquirer.prompt(updateR)
 }
+
+
+const viewRoles = () => {
+    db.query("SELECT * FROM roles;", (err, res) => {
+        if (err) throw error;
+        console.table(res);
+        questions();
+    });
+  };
+
+
+const viewDepartment = () => {
+    db.query('SELECT * FROM department;', (err, res) => {
+        if (err) throw error;
+        console.table(res);
+        questions();
+});
+}
+
+const viewEmployees = () => {
+    db.query('SELECT * FROM department JOIN roles ON department.id = roles.department_id JOIN employee ON roles.id = employee.role_id;', (err, res) => {
+        if (err) throw error;
+        console.table(res);
+        questions();
+});
+}
+
 
 questions()
 

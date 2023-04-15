@@ -4,7 +4,7 @@ const mainQ = [
         type: 'list',
         message: 'Select one of the following:',
         name: 'options',
-        choices:['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an exployee', 'Update an employee role', 'Quit']
+        choices:['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role', 'Quit']
     },
 ];
 
@@ -81,4 +81,4 @@ module.exports = {
     newEmployee,
     newDepartment,
     updateR
-}
+};

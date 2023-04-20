@@ -1,7 +1,7 @@
 # Employee-Tracker
 
 ## Description
-Employee Tracker was built for an example on how to use inquirer to gather data and use MYSQL2 to update a database. In addition, I furthered my understanding on how to immplement the DRY method approach in coding along wtih creating a database, tables, and seeding the table. 
+Employee Tracker was built for an example on how to use inquirer to gather data and use MYSQL2 to update a database. In addition, I furthered my understanding on how to implement the DRY method approach in coding along wtih creating a database, tables, and seeding the table. 
 
 
 ## Table of Contents 
@@ -20,10 +20,11 @@ Node.JS<br>
 npm i<br>
 
 ## Usage
-After installing npm i, run the index.js file in terminal, and answer prompts accordingly. Depening on the option selected, questions may appear or a table will be presented. 
+After installing npm i, run the server.js file in terminal, and answer prompts accordingly. Depending on the option selected, questions may appear or a table will be presented. 
 
 <a href='https://drive.google.com/file/d/1FRFSvo0fj1orrfQNWA6Da8pnkuh8sndE/view'>Link to Employee-Tracker</a>
 
+[Untitled_ Apr 19, 2023 10_15 PM.webm](https://user-images.githubusercontent.com/121457179/233249991-e82f3ea6-2f42-4a26-a328-9757beacabb2.webm)
 
 ## Credits
 

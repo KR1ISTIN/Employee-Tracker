@@ -57,7 +57,37 @@ class Employee {
         })
     }
 };
+
+class UpdateRole {
+    constructor(first_name, last_name, role) {
+        this.first_name = first_name,
+        this.last_name = last_name,
+        this.role = role
+    }
+    render() {
+        if(this.role === 'Lead Engineer') {
+            this.role = 1;
+        } else if (this.role === 'Software Engineer') {
+            this.role = 2;
+        } else if (this.role === 'Account Manager') {
+            this.role= 3;
+        } else if (this.role === 'Accountant') {
+            this.role = 4;
+        } else if (this.role === 'Legal Term Lead') {
+            this.role = 5;
+        }  else if (this.role === 'Lawyer') {
+            this.role = 6;
+        } else if (this.role === 'Project Manager') {
+            this.role = 7;
+        } else if (this.role === 'Marketing') {
+            this.role = 8;
+        }
+       
+        return db.query('UPDATE employee SET role_id = ? WHERE first_name = ? AND last_name = ?', [this.role, this.first_name, this.last_name])
+    }
+}
 module.exports ={
     Department,
-    Employee
+    Employee,
+    UpdateRole
 }
